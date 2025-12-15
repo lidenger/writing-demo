@@ -7,6 +7,7 @@ type Resp[T any] struct {
 }
 
 type AccountReq struct {
+	ID       int64  `json:"id"`
 	Username string `json:"username" binding:"required"`
 	Password string `json:"password" binding:"required,min=6"`
 	Email    string `json:"email" binding:"required,email"`
@@ -17,6 +18,11 @@ type AccountReq struct {
 	Birthday string `json:"birthday"`  // 生日
 	RealName string `json:"real_name"` // 真实姓名
 	IDCard   string `json:"id_card"`   // 身份证号
+}
+
+type AccountCond struct {
+	Gender   *int  `json:"gender"`
+	IsEnable *bool `json:"is_enable"`
 }
 
 type Account struct {
